@@ -2,7 +2,6 @@ import React from 'react'
 import { matchPath } from './path'
 
 export default class Switch extends React.Component {
-
   render() {
     const { children, routerState } = this.props;
     let match, child;
@@ -16,7 +15,9 @@ export default class Switch extends React.Component {
       }
     })
     return match ? (
-      child
+      React.cloneElement(child, {
+        match: true
+      })
     ) : null
   }
-} 
+}
