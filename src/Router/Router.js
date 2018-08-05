@@ -3,6 +3,7 @@ import { getPath } from './path'
 import PropTypes from 'prop-types'
 import { PathContext } from './context'
 
+
 export default class Router extends React.Component {
   static propTypes = {
     children: PropTypes.node
@@ -11,10 +12,11 @@ export default class Router extends React.Component {
   state = {
     path: '',
     prevPath: '',
+    history: this.props.history
   }
   componentDidMount() {
     const path = getPath(window.location.href);
-    console.log(path)
+
     this.setState({
       path,
     })
@@ -30,7 +32,6 @@ export default class Router extends React.Component {
   }
   render() {
     const { children } = this.props;
-    const { path, prevPath } = this.state;
     return (
       <PathContext.Provider value={this.state}>
         {

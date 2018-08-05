@@ -3,7 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import Home from './Routes/Home'
 import Center from './Routes/Center'
-import Router, { Link, Route } from './Router'
+import {Router, Link, Route, history } from './Router'
 
 class App extends Component {
   render() {
@@ -13,23 +13,28 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to React</h1>
         </header>
-        <div className="App-intro">
-          <Link to='/home'>Home</Link>
-          <div></div>
-          <Link to='/center'>Center</Link>
-        </div>
+        <Router history={history}>
+          <div className="app-root">
+            <div className="left">
+              <Link to='/home'>Home</Link>
+              <div></div>
+              <Link to='/center'>Center</Link>
+            </div>
 
-        <Router>
-          <div>
-            <Route
-              path='/home'
-              component={Home}
-            />
-            <Route
-              path='/center'
-              component={Center}
-            />
+            <div className="right">
+              <div>
+                <Route
+                  path='/home'
+                  component={Home}
+                />
+                <Route
+                  path='/center'
+                  component={Center}
+                />
+              </div>
+            </div>
           </div>
+          
         </Router>
       </div>
     );

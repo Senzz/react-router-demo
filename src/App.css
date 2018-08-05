@@ -26,3 +26,12 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.app-root{
+  display: flex;
+  width: 700px;
+  margin: auto;
+}
+.app-root .left{
+  margin-right: 20px;
+}

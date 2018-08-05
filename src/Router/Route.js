@@ -7,7 +7,7 @@ export default class Route extends React.Component {
     const { component, path, exact, render, children } = this.props;
     const props = {
       path, exact
-    }
+    } 
     if (component) return (
       <PathContext.Consumer>
         {routerState => matchPath(props, routerState) ? React.createElement(component, routerState) : null}

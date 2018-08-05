@@ -3,7 +3,10 @@ import React from 'react'
 export default class extends React.Component {
   render() {
     return (
-      <div>Center, {JSON.stringify(this.props)}</div>
+      <div>
+        <div>Center</div> 
+        {JSON.stringify(this.props)}
+      </div>
     )
   }
 }
